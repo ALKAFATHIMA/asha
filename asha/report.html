@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Information Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .form-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group .column-container {
+            display: flex;
+            align-items: center;
+        }
+        .form-group .column {
+            flex: 1;
+            margin-right: 5px;
+        }
+        .button-container {
+            text-align: center;
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #e82121;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Report</h2>
+        <form id="health-form">
+            <div class="form-group">
+                <label for="child-vaccination">Children who haven't taken vaccination:</label>
+                <div class="column-container">
+                    <div class="column">
+                        <input type="text" id="child-sl-no" name="child-sl-no" placeholder="Sl. No.">
+                    </div>
+                    <div class="column">
+                        <input type="text" id="child-ward-number" name="child-ward-number" placeholder="Ward No.">
+                    </div>
+                    <div class="column">
+                        <input type="text" id="child-name" name="child-name" placeholder="Name">
+                    </div>
+                    <div class="column">
+                        <input type="number" id="child-age" name="child-age" placeholder="Age">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="death">Death:</label>
+                <div class="column-container">
+                    <div class="column">
+                        <input type="text" id="death-sl-no" name="death-sl-no" placeholder="Sl. No.">
+                    </div>
+                    <div class="column">
+                        <input type="text" id="death-ward-number" name="death-ward-number" placeholder="Ward No.">
+                    </div>
+                    <div class="column">
+                        <input type="text" id="death-name" name="death-name" placeholder="Name">
+                    </div>
+                    <div class="column">
+                        <input type="number" id="death-age" name="death-age" placeholder="Age">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="patient-details">Patient Details:</label>
+                <textarea id="patient-details" name="patient-details" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="people-living-alone">People living alone:</label>
+                <div class="column-container">
+                    <div class="column">
+                        <input type="text" id="alone-sl-no" name="alone-sl-no" placeholder="Sl. No.">
+                    </div>
+                    <div class="column">
+                        <input type="text" id="alone-ward-number" name="alone-ward-number" placeholder="Ward No.">
+                    </div>
+                    <div class="column">
+                        <input type="text" id="alone-name" name="alone-name" placeholder="Name">
+                    </div>
+                    <div class="column">
+                        <input type="number" id="alone-age" name="alone-age" placeholder="Age">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="contagious-diseases">Contagious Diseases:</label>
+                <select id="contagious-diseases" name="contagious-diseases">
+                    <option value="">Select</option>
+                    <option value="Covid-19">Covid-19</option>
+                    <option value="Influenza">Influenza</option>
+                    <option value="Measles">Measles</option>
+                    <option value="Tuberculosis">Tuberculosis</option>
+                    <option value="HIV/AIDS">HIV/AIDS</option>
+                    <option value="Hepatitis">Hepatitis</option>
+                    <option value="Ebola">Ebola</option>
+                </select>
+            </div>
+            <div class="button-container">
+                <button type="submit" class="button">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('health-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            const data = {};
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+            console.log(data);
+            // Here you can send the data to the server using AJAX, fetch API, etc.
+        });
+    </script>
+</body>
+</html>

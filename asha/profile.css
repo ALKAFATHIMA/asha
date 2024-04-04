@@ -1,0 +1,339 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    margin-right:0 ;
+    padding: 0;
+    background-color:teal;
+    overflow: hidden; /* Prevent scrolling when overlay is active */
+    position: relative; /* Position relative to allow absolute positioning of overlay */
+}
+
+header {
+    text-align: center;
+   
+    color: black;
+    padding: 20px 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    padding-top: 60px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    padding: 15px;
+    border-bottom: 1px solid #555;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: #f0f0f0;
+}
+
+main {
+    margin-left: 250px;
+    padding: 20px;
+}
+
+.hidden {
+    display: none;
+    
+}
+
+.container {
+    position: relative;
+    max-width: 1000px;
+    max-height: 600px;
+    width: 100%;
+    background: #fff;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+    align-items: center;
+    margin-left: 50px;
+    
+  }
+  .container header {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 0 ;
+  }
+  .container .form {
+    margin-top: 0;
+
+  }
+  .form .input-box {
+    width: 70%;
+    margin-top: 20px;
+  }
+  .input-box label {
+    color: #333;
+  }
+  .form :where(.input-box input, .select-box) {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+    color: #707070;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 15px;
+  }
+  .input-box input:focus {
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  }
+  .form .column {
+    display: flex;
+    column-gap: 45px;
+  }
+  .form .gender-box {
+    margin-top: 20px;
+  }
+  .gender-box h3 {
+    color: #333;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+  .form :where(.gender-option, .gender) {
+    display: flex;
+    align-items: center;
+    column-gap: 50px;
+    flex-wrap: wrap;
+  }
+  .form .gender {
+    column-gap: 5px;
+  }
+  .gender input {
+    accent-color: rgb(130, 106, 251);
+  }
+  .form :where(.gender input, .gender label) {
+    cursor: pointer;
+  }
+  .gender label {
+    color: #707070;
+  }
+    .form .address {
+         column-gap: 5px;
+    }
+  
+  .address :where(input, .select-box) {
+    margin-top: 15px;
+    
+  }
+  .select-box select {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    color: #707070;
+    font-size: 1rem;
+  }
+  .form button {
+    height: 55px;
+    width: 100%;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 30px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: teal;
+  }
+  .form button:hover {
+    background:black;
+  }
+
+  @media screen and (max-width: 500px) {
+    .form .column {
+      flex-wrap: wrap;
+    }
+    .form :where(.gender-option, .gender) {
+      row-gap: 15px;
+    }
+  }
+  
+/* CSS for the button in the side menu */
+#sideNav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color:black;
+    padding-top: 60px;
+}
+
+#sideNav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#sideNav ul li {
+    padding: 15px;
+    border-bottom: 1px solid whitesmoke;
+}
+
+#sideNav ul li:last-child {
+    margin-top: -10px; /* Adjust margin to move the button slightly higher */
+    margin-bottom: 10px; /* Add margin at the bottom for spacing */
+    position: absolute;
+    bottom: 50px;
+    left: 6px;
+}
+
+#sideNav ul li:last-child a {
+    display: block;
+    padding: 10px 20px;
+    text-align: center;
+    background-color: #ff7f50; /* Change button color */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#sideNav ul li:last-child a:hover {
+    background-color: #ff6347; /* Change button hover color */
+}
+
+/* Styles for the form container */
+.form-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 1000; /* Ensure it appears above the overlay */
+    display: none;
+    backdrop-filter: blur(5px); /* Apply blur effect to the background */
+}
+
+
+/* Styles for the overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    z-index: 999; /* Ensure it appears above other content */
+    display: none;
+    backdrop-filter: blur(5px); /* Apply blur effect to the background */
+}
+
+#blur.active
+{
+    filter: blur(20px);
+    pointer-events: none;
+    user-select: none;
+}
+
+#popup
+{
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 600px;
+    padding: 50px;
+    box-shadow: 0 5px 30px rgba(0,0,0,-30);
+    background: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+
+
+}
+
+#popup.active{
+    top: 40% ;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+
+#pop
+{
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 600px;
+    padding: 50px;
+    box-shadow: 0 5px 30px rgba(0,0,0,-30);
+    background: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+
+
+}
+
+#pop.active{
+    top: 40% ;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
